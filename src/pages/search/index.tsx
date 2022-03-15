@@ -3,7 +3,7 @@ import React from 'react';
 import { MainContainer } from '../../components/Container/MainContainer';
 import { LinkButton } from '../../components/Link/Link';
 import { ThemeSwitcher } from '../../components/ThemeSwitcher/ThemeSwitcher';
-import { Body1, Heading1, Heading2 } from '../../components/Typography/Typography';
+import { Heading1, Heading2 } from '../../components/Typography/Typography';
 import { useTitle } from '../../utils/useTitle';
 
 const SearchPage: React.FC = () => {
@@ -13,12 +13,14 @@ const SearchPage: React.FC = () => {
     <MainContainer>
       <ThemeSwitcher />
       <Container>
-        <Heading1>GitHub Search API</Heading1>
-        <Box mt={3} mb={3}>
+        <Box mb={3}>
           <LinkButton to='/' text='Go back' />
         </Box>
+        <Heading1>GitHub Search API</Heading1>
         <Heading2>User search</Heading2>
-        <Body1>Hehe :)</Body1>
+        <Box border={1} borderRadius='5px' p={3}>
+          Search component placeholder
+        </Box>
       </Container>
     </MainContainer>
   );
