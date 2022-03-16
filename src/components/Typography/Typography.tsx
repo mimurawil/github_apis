@@ -1,4 +1,5 @@
 import { Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import React from 'react';
 
 export const Heading1: React.FC = ({ children }) => {
@@ -24,6 +25,15 @@ export const Body1: React.FC<{ mb?: 'md' | 'lg' }> = ({ children, mb = 'md' }) =
   }
   return (
     <Typography variant='body1' gutterBottom fontSize={20} {...marginBottom}>
+      {children}
+    </Typography>
+  );
+};
+
+export const Error: React.FC = ({ children }) => {
+  const theme = useTheme();
+  return (
+    <Typography variant='subtitle2' color={theme.palette.error.main}>
       {children}
     </Typography>
   );

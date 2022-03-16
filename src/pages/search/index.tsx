@@ -4,6 +4,7 @@ import { MainContainer } from '../../components/Container/MainContainer';
 import { LinkButton } from '../../components/Link/Link';
 import { ThemeSwitcher } from '../../components/ThemeSwitcher/ThemeSwitcher';
 import { Heading1, Heading2 } from '../../components/Typography/Typography';
+import { UserSearchComponent } from '../../components/UserSearch/UserSearch';
 import { useTitle } from '../../utils/useTitle';
 
 const SearchPage: React.FC = () => {
@@ -19,7 +20,7 @@ const SearchPage: React.FC = () => {
         <Heading1>GitHub Search API</Heading1>
         <Heading2>User search</Heading2>
         <Box border={1} borderRadius='5px' p={3}>
-          Search component placeholder
+          <UserSearchComponent />
         </Box>
       </Container>
     </MainContainer>
