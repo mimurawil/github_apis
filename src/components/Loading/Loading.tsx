@@ -1,8 +1,9 @@
 import LoopIcon from '@mui/icons-material/Loop';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import React from 'react';
 import { styled } from '@mui/system';
 import { Body1 } from '../Typography/Typography';
+import { useTheme } from '@mui/material/styles';
 
 const StyledLoopIcon = styled(LoopIcon)({
   fontSize: '5rem',
@@ -18,10 +19,20 @@ const StyledLoopIcon = styled(LoopIcon)({
 });
 
 interface LoadingProps {
-  isLoading: boolean;
+  isLoading?: boolean;
+  error?: string;
 }
 
-export const Loading: React.FC<LoadingProps> = ({ isLoading }) => {
+export const Loading: React.FC<LoadingProps> = ({ isLoading, error }) => {
+  const theme = useTheme();
+  if (error) {
+    return (
+      <Typography variant='h6' component='p' color={theme.palette.error.main}>
+        {error}
+      </Typography>
+    );
+  }
+
   if (!isLoading) {
     return null;
   }

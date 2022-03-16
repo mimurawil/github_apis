@@ -30,6 +30,14 @@ export const Body1: React.FC<{ mb?: 'md' | 'lg' }> = ({ children, mb = 'md' }) =
   );
 };
 
+export const Body2: React.FC = ({ children }) => {
+  return (
+    <Typography variant='body2' fontSize={18}>
+      {children}
+    </Typography>
+  );
+};
+
 export const Error: React.FC = ({ children }) => {
   const theme = useTheme();
   return (
