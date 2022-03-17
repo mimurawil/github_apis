@@ -5,6 +5,7 @@ export const MainContainer = styled(Container)(({ theme }) => ({
   width: '100%',
   maxWidth: '100%',
   minHeight: '100%',
+  paddingBottom: '3rem',
   color: theme.palette.text.primary,
   backgroundColor: theme.palette.background.default,
 }));

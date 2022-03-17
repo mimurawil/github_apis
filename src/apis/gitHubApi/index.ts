@@ -14,10 +14,11 @@ async function parseResponse(res: Response) {
 }
 
 // could use something fancy like react-query, but let's keep it simple here :)
-export function fetchGitHubSearchUserApi(text: string): Promise<GitHubSearchResult> {
-  return fetch(fetchGitHubSearchUserApi.url(text)).then(parseResponse);
+export function fetchGitHubSearchUserApi(text: string, page: number, size: number): Promise<GitHubSearchResult> {
+  return fetch(fetchGitHubSearchUserApi.url(text, page, size)).then(parseResponse);
 }
-fetchGitHubSearchUserApi.url = (text: string) => `https://api.github.com/search/users?q=${text}&per_page=5&page=1`;
+fetchGitHubSearchUserApi.url = (text: string, page: number, size: number) =>
+  `https://api.github.com/search/users?q=${text}&per_page=${size}&page=${page}`;
 
 export function fetchGitHubUserApi(username: string): Promise<GitHubUser> {
   return fetch(fetchGitHubUserApi.url(username)).then(parseResponse);

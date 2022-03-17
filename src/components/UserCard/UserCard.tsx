@@ -5,6 +5,30 @@ import { GitHubSearchUser } from '../../apis/interfaces/GitHubSearchUser';
 import { GitHubUser } from '../../apis/interfaces/GitHubUser';
 import { Body1, Body2 } from '../Typography/Typography';
 
+const UserDetailedInfo: React.FC<{ user: GitHubUser }> = ({ user }) => {
+  let generalInfo = '';
+  if (user?.followers) {
+    generalInfo += `followers: ${user.followers}`;
+  }
+  if (user?.following) {
+    generalInfo += generalInfo && ` | `;
+    generalInfo += `following: ${user.following}`;
+  }
+
+  if (user?.public_repos) {
+    generalInfo += generalInfo && ` | `;
+    generalInfo += `public repos: ${user.public_repos}`;
+  }
+
+  return (
+    <>
+      <Body2>{user?.bio}</Body2>
+      <Body2>{user?.location}</Body2>
+      <Body2>{generalInfo}</Body2>
+    </>
+  );
+};
+
 interface UserCardProps {
   gitHubSearchUser: GitHubSearchUser;
 }
@@ -35,8 +59,7 @@ export const UserCard: React.FC<UserCardProps> = ({ gitHubSearchUser }) => {
             </MuiLink>
             )
           </Body1>
-          <Body2>{user?.bio}</Body2>
-          <Body2>hehe</Body2>
+          {user && <UserDetailedInfo user={user} />}
         </Box>
       </Box>
     </>
