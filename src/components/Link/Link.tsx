@@ -4,6 +4,8 @@ import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 const StyledLink = styled(RouterLink)(({ theme }) => ({
+  display: 'inline-block',
+  padding: '6px 16px',
   textDecoration: 'none',
   color: 'inherit',
 }));
@@ -14,7 +16,7 @@ export interface LinkButtonProps {
 }
 export const LinkButton: React.FC<LinkButtonProps> = ({ text, to }) => {
   return (
-    <Button variant='contained'>
+    <Button variant='contained' style={{ padding: 0 }}>
       <StyledLink to={to}>{text}</StyledLink>
     </Button>
   );
